@@ -68,4 +68,28 @@ pwd               //当前目录
 4.git remote add origin http://xxxxxxxxx.git   //本地仓库和远程github关联
 5.git pull --rebase origin main    //远程有readme.md，拉一下
 6.git push -u origin main        //代码合并
+
+```
+
+**3.新增文件上传到github**
+```
+# 在B文件夹内
+git remote add origin <remote_repo>
+git fetch --all
+git checkout -b remote_master origin/master
+# 这时你所有的B文件夹的新文件，假定没有冲突，都对untracked 状态
+git add -A
+git commit -m "add files from folder b"
+git push origin master
+
+```
+
+**git删除远程仓库的文件或目录**
+```
+git rm -r --cached .error//删除.error目录下 
+git rm -r --cached error/e.txt //删除error目录下的a.txt文件   删除error目录git rm -r --cached error
+
+git commit -m "删除a目录下的2.txt文件" 
+
+git push
 ```
